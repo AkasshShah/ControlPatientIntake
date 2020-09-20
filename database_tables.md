@@ -66,9 +66,9 @@ patient_cancer [boolean]
 
 patient_diabetes [boolean]
 
-patient_metal_implants
+patient_metal_implants [boolean]
 
-patient_pacemaker
+patient_pacemaker [boolean]
 
 patient_allergies [varchar(128)]
 
