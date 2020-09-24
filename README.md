@@ -2,8 +2,7 @@
 Control plane for the MVC model of our patient intake micro-service for a Patient-Doctor Portal Site.
 
 ## Control (API) Features
- - [ ] Patient + Insurance Information Sign Up
- - [ ] Patient + Insurance Authentication
+ - [ ] Patient + Insurance Information Entry
  - [ ] Patient + Insurance Information Retrieval
  - [ ] Patient + Insurance Information Modification
 
