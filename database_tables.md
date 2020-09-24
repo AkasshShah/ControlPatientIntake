@@ -4,8 +4,6 @@
 
 patient_id [varchar(32)]      <- primary key
 
-patient_pass [varchar(32)]
-
 patient_first_name [varchar(32)]
 
 patient_middle_name [varchar(32)]
