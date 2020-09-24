@@ -2,7 +2,7 @@
 
 ## PATIENT
 
-patient_id [varchar(32)]      <- primary key
+patient_id [int] [auto-increment]      <- primary key
 
 patient_first_name [varchar(32)]
 
