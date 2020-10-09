@@ -46,6 +46,12 @@ insurance_company_name [varchar(32)]
 
 insurance_contact_number [varchar(10)]
 
+insurance_pharmancy_network [varchar(32)]
+
+insurance_group_number [varchar(32)]
+
+insurance_plan_name [varchar(32)]
+
 ## MEDICAL_HISTORY
 
 patient_id [varchar(32)]      <- primary key
