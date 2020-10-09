@@ -20,7 +20,7 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
 ## API Documentation
 
 ### Location
-API can be communicated with at https://web.njit.edu/~as2757/cs673/api.php
+API can be communicated with at https://web.njit.edu/~as2757/ControlPatientIntake/api.php
 This document below will further guide you to interacting with it.
 _**All information will be transfered in JSON format and not XML or any other**_
 
