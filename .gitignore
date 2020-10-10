@@ -7,5 +7,4 @@
 *.code-workspace
 
 ### account details ###
-account_db.php
-account_token.php
+account.php
