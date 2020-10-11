@@ -83,11 +83,4 @@ $sendData = array(
 // Make $data into a json-string and send POST request to the API
 $url = 'https://web.njit.edu/~as2757/ControlPatientIntake/api.php';
 $data = json_encode($sendData);
-$options = array(
-    'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data)
-    )
-);
 ```
