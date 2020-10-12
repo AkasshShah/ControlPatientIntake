@@ -64,11 +64,7 @@ patient_currently_pregnant [boolean]
 
 patient_diabetes [boolean]
 
-patient_diabetes [boolean]
-
 patient_cancer [boolean]
-
-patient_diabetes [boolean]
 
 patient_metal_implants [boolean]
 
