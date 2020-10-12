@@ -80,6 +80,10 @@ family_cancer [boolean]
 
 family_diabetes [boolean]
 
-family_diabetes [boolean]
+family_heart_conditions [boolean]
 
-family_diabetes [boolean]
+family_bleeding_disorder [boolean]
+
+family_stroke [boolean]
+
+family_sickle_cell_disease [boolean]
