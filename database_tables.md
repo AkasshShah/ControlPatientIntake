@@ -54,7 +54,7 @@ insurance_plan_name [varchar(32)]
 
 ## MEDICAL_HISTORY
 
-patient_id [varchar(32)]      <- primary key
+patient_id [int]      <- primary key
 
 patient_drinker [boolean] #drinks more than 7 drinks a week
 
@@ -78,7 +78,7 @@ patient_allergies [varchar(128)]
 
 ## FAMILY_HISTORY
 
-patient_id [varchar(32)]      <- primary key
+patient_id [int]      <- primary key
 
 family_cancer [boolean]
 
