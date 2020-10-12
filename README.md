@@ -3,10 +3,10 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
 
 ## Control (API) Features
  - [ ] [Single Patient Information Entry](#single-patient-information-entry)
- - [ ] Single Patient Insurance Information Entry (Type = "SPIIE")
- - [ ] Single Patient Medical History Information Entry (Type = "SPMHIE")
- - [ ] Single Patient Family History Information Entry (Type = "SPFHIE")
- - [ ] Single Patient Information Retrieval (Type = "SPIR")
+ - [ ] [Single Patient Insurance Information Entry](#single-patient-insurance-information-entry)
+ - [ ] [Single Patient Medical History Information Entry](#single-patient-medical-history-information-entry)
+ - [ ] [Single Patient Family History Information Entry](#single-patient-family-history-information-entry)
+ - [ ] [Single Patient Information Retrieval By Patient ID](#single-patient-information-retrieval-by-patient-id)
  - [ ] All Patient Information Retrieval (Type = "APIR")
  - [ ] Single Patient Insurance Information Retrieval (Type = "SPIIR")
  - [ ] Single Patient Medical History Information Retrieval (Type = "SPMHIR")
@@ -120,3 +120,56 @@ $options = array(
 $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 ```
+
+### Single Patient Insurance Information Entry
+
+#### SPIIE Structure
+
+ - Token => string
+ - Type => ```"SPIIE"```
+ - Data => array
+   - insurance_id => string with a max length of 9
+   - insurance_company_name => string with a max length of 32
+   - insurance_contact_number => string with a max length of 10
+   - insurance_pharmancy_network => string with a length of 32
+   - insurance_group_number => string with a max length of 32
+   - insurance_plan_name  => string with a max length of 32
+
+### Single Patient Medical History Information Entry
+
+#### SPMHIE Structure
+
+ - Token => string
+ - Type => ```"SPMHIE"```
+ - Data => array
+   - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
+   - patient_drinker => boolean
+   - patient_smoker => boolean
+   - patient_currently_pregnant => boolean
+   - patient_diabetes => boolean
+   - patient_cancer => boolean
+   - patient_metal_implants => boolean
+   - patient_pacemaker => boolean
+   - patient_allergies => string with a max length of 128
+
+### Single Patient Family History Information Entry
+
+ - Token => string
+ - Type => ```"SPFHIE"```
+ - Data => array
+   - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
+   - family_cancer => boolean
+   - family_diabetes => boolean
+   - family_heart_conditions => boolean
+   - family_bleeding_disorder => boolean
+   - family_stroke => boolean
+   - family_sickle_cell_disease => boolean
+
+### Single Patient Information Retrieval By Patient ID
+
+#### SPIR Structure
+
+ - Token => string
+ - Type => ```"SPIRBPID"```
+ - Data => array
+   - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
