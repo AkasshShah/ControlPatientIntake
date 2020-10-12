@@ -55,6 +55,31 @@ All the listed detials will be enclosed in a ```dictionary``` or ```named list``
 
 Here is what the structure will look like with an example in ```PHP```.
 
+#### Structure
+
+ - Token => string
+ - Type => ```"SPIE"```
+ - Data => array
+   - patient_first_name => string with a max length of 32
+   - patient_middle_name => string with a max length of 32
+   - patient_last_name => string with a max length of 32
+   - patient_ssn => string with a length of 9
+   - patient_dob => string following a YYYY-MM-DD format
+   - patient_sex => string with a length of 1
+   - patient_emailid => string with a max length of 64
+   - patient_contact_number => string with a max length of 10
+   - patient_address_line_1 => string with a max length of 32
+   - patient_address_line_2 => string with a max length of 32
+   - patient_address_city => string with a max length of 32
+   - patient_address_state => string with a max length of 16
+   - patient_zip_code => string with a length of 5
+   - patient_insurance_id => string with a max length of 9
+   - patient_emergency_contact_name => string with a max length of 64
+   - patient_emergency_contact_relationship => string with a max length of 32
+   - patient_emergency_contact_number => string with a max length of 10
+
+#### Example in ```PHP```
+
 ```PHP
 $sendData = array(
     "Token" => "ExampleToken",
@@ -64,16 +89,16 @@ $sendData = array(
         "patient_middle_name" => "Llama",
         "patient_last_name" => "Alpaca",
         "patient_ssn" => "123456789",
-        "patient_dob" => "1900-04-20", // DOB (Date of Birth) will be in YYYY-MM-DD format
-        "patient_sex" => "A", // Will be a 1 character entry
+        "patient_dob" => "1900-04-20",
+        "patient_sex" => "A",
         "patient_emailid" => "llama.alpaca@bob.com",
         "patient_contact_number" => "1234567890",
         "patient_address_line_1" => "At the farm",
         "patient_address_line_2" => "Round the corner",
         "patient_address_city" => "Mountain",
         "patient_address_state" => "Solid",
-        "patient_zip_code" => "12345", // string of length 5
-        "patient_insurance_id" => "123456789", // string of max length 9
+        "patient_zip_code" => "12345",
+        "patient_insurance_id" => "123456789",
         "patient_emergency_contact_name" => "Goat Sheep",
         "patient_emergency_contact_relationship" => "Cousin",
         "patient_emergency_contact_number" => "1234567890"
@@ -83,4 +108,15 @@ $sendData = array(
 // Make $data into a json-string and send POST request to the API
 $url = 'https://web.njit.edu/~as2757/ControlPatientIntake/api.php';
 $data = json_encode($sendData);
+
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => $data
+    )
+);
+    
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
 ```
