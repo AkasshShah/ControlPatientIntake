@@ -15,7 +15,7 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
  - [ ] Single Patient Insurance Information Modification (Type = "SPIIM")
  - [ ] Single Patient Medical History Information Modification (Type = "SPMHIM")
  - [ ] Single Patient Family History Information Modification (Type = "SPFHIM")
- - [ ] ADMIN ONLY: DELETE ALL ENTRIES IN (TRUNCATE) DATABASE (Type = "SPIE")
+ - [ ] ADMIN ONLY: DELETE ALL ENTRIES IN (TRUNCATE) DATABASE (Type = "BEGONE")
 
 ## API Documentation
 
