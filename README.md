@@ -55,7 +55,7 @@ All the listed detials will be enclosed in a ```dictionary``` or ```named list``
 
 Here is what the structure will look like with an example in ```PHP```.
 
-#### Structure
+#### SPIE Structure
 
  - Token => string
  - Type => ```"SPIE"```
@@ -78,7 +78,7 @@ Here is what the structure will look like with an example in ```PHP```.
    - patient_emergency_contact_relationship => string with a max length of 32
    - patient_emergency_contact_number => string with a max length of 10
 
-#### Example in ```PHP```
+#### SPIE Example in ```PHP```
 
 ```PHP
 $sendData = array(
