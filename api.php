@@ -2,8 +2,6 @@
     require("GeneralFuncs.php");
     errorReporting();
 
-    // header("Access-Control-Allow-Origin: *");
-
     $output = array(
         "Status" => "OK",
         "Data" => array()
