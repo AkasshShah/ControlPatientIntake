@@ -28,6 +28,19 @@ _**All information will be transfered in JSON format and not XML or any other**_
 
 The API will be looking for POST requests for higher security and larger message sizes.
 
+## Receiving a response from the API
+
+The response from the API will be a JSON encoded array with two main keys:
+ - Status
+ - ReturnData
+
+### Status
+
+Status will be a string. Status can take the following values:
+ - `"OK"` when the API receives what is expected and the `Token` passed has valid permissions
+ - `"PermissionDenied"` when the Token isn't valid or if that group doesn't have access to complete the task
+ - `"InvalidData"` when the data received by the API wasn't valid, like entering a `string` of length 20 for `SSN`
+
 ## Sending the API a message
 
 The message must be JSON formatted. The message will hold the following in a JSON string:
@@ -77,6 +90,11 @@ Here is what the structure will look like with an example in ```PHP```.
    - patient_emergency_contact_name => string with a max length of 64
    - patient_emergency_contact_relationship => string with a max length of 32
    - patient_emergency_contact_number => string with a max length of 10
+
+#### `"ReturnData"`
+
+`"ReturnData"` will be an array with the following keys:
+ - patient_id : ID for the patient that was just inserted if information was valid
 
 #### SPIE Example in ```PHP```
 
