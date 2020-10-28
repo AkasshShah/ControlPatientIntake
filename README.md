@@ -2,7 +2,7 @@
 Control plane for the MVC model of our patient intake micro-service for a Patient-Doctor Portal Site.
 
 ## Control (API) Features
- - [ ] [Single Patient Information Entry](#single-patient-information-entry)
+ - [x] [Single Patient Information Entry](#single-patient-information-entry)
  - [ ] [Single Patient Insurance Information Entry](#single-patient-insurance-information-entry)
  - [ ] [Single Patient Medical History Information Entry](#single-patient-medical-history-information-entry)
  - [ ] [Single Patient Family History Information Entry](#single-patient-family-history-information-entry)

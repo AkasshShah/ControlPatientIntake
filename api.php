@@ -19,7 +19,7 @@
     if(!isTokenValid($token)){
         // Token is not valid
         $output["Status"] = "InvalidToken";
-        $output["Data"]["Token"] = $token;
+        $output["ReturnData"]["Token"] = $token;
         echo(json_encode($output));
         exit();
     }
@@ -40,8 +40,6 @@
         //     }
         //     else{
         //         $output["Status"] = "PermissionDenied";
-        //         echo(json_encode($output));
-        //         exit();
         //     }
         // break;
 
@@ -57,13 +55,9 @@
                     $output["Status"] = "InvalidData";
                     $output["ReturnData"]["error"] = $rArr[1];
                 }
-                echo(json_encode($output));
-                exit();
             }
             else{
                 $output["Status"] = "PermissionDenied";
-                echo(json_encode($output));
-                exit();
             }
         break;
 
@@ -74,8 +68,6 @@
             }
             else{
                 $output["Status"] = "PermissionDenied";
-                echo(json_encode($output));
-                exit();
             }
         break;
 
@@ -86,8 +78,6 @@
             }
             else{
                 $output["Status"] = "PermissionDenied";
-                echo(json_encode($output));
-                exit();
             }
         break;
 
@@ -98,9 +88,9 @@
             }
             else{
                 $output["Status"] = "PermissionDenied";
-                echo(json_encode($output));
-                exit();
             }
         break;
     }
+    echo(json_encode($output));
+    exit();
 ?>
