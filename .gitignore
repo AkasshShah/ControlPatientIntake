@@ -11,3 +11,6 @@ account.php
 
 ### Testing Stuff ###
 test.php
+
+### Ignore Folder ###
+.ignore/
