@@ -27,6 +27,7 @@ _**All information will be transfered in JSON format and not XML or any other**_
 # Communicating with the API
 
 The API will be looking for POST requests for higher security and larger message sizes.
+Note: Everything is case-sensitive
 
 ## Receiving a response from the API
 
