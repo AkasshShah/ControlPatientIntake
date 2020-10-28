@@ -6,7 +6,7 @@
 
     $output = array(
         "Status" => "OK",
-        "Data" => array()
+        "ReturnData" => array()
     );
 
     $json = file_get_contents('php://input');
@@ -49,6 +49,16 @@
         case "SPIE":
             if(strpos($accessType["PatientPermission"], $permissionSymbols["write"]) !== false){
                 // Call function to input
+                $rArr = SPIE($data);
+                if($rArr[0]){
+                    $output["ReturnData"]["patient_id"] = $rArr[1];
+                }
+                else{
+                    $output["Status"] = "InvalidData";
+                    $output["ReturnData"]["error"] = $rArr[1];
+                }
+                echo(json_encode($output));
+                exit();
             }
             else{
                 $output["Status"] = "PermissionDenied";
