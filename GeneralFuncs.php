@@ -98,4 +98,28 @@
         $ms->close();
         return([TRUE, ""]);
     }
+
+    // Single Patient Medical History Information Entry
+    function SPMHIE($data){
+        $ms = mysqliOOP("data");
+        $query = "INSERT INTO MEDICAL_HISTORY VALUES ('".$ms->real_escape_string($data["patient_id"]."',
+            '".$ms->real_escape_string($data["patient_drinker"]."',
+            '".$ms->real_escape_string($data["patient_smoker"]."',
+            '".$ms->real_escape_string($data["patient_diabetes"]."',
+            '".$ms->real_escape_string($data["patient_cancer"]."',
+            '".$ms->real_escape_string($data["patient_high_blood_pressure"]."',
+            '".$ms->real_escape_string($data["patient_heart_disease"]."',
+            '".$ms->real_escape_string($data["patient_currently_pregnant"]."',
+            '".$ms->real_escape_string($data["patient_metal_implants"]."',
+            '".$ms->real_escape_string($data["patient_pacemaker"]."',
+            '".$ms->real_escape_string($data["patient_allergies"]."');";
+    }
+    $res = $ms->query($query);
+    if(!$res){
+        $err = $ms->error;
+        $ms->close();
+        return([FALSE, $err]);
+    }
+    $ms->close();
+    return([TRUE, ""]);
 ?>
