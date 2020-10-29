@@ -5,7 +5,7 @@
     header("Access-Control-Allow-Origin: *");
 
     $output = array(
-        "Status" => "OK",
+        "Status" => "InvalidType",
         "ReturnData" => array()
     );
 
@@ -49,6 +49,7 @@
                 // Call function to input
                 $rArr = SPIE($data);
                 if($rArr[0]){
+                    $output["Status"] = "OK";
                     $output["ReturnData"]["patient_id"] = $rArr[1];
                 }
                 else{
@@ -65,6 +66,14 @@
         case "SPIIE":
             if(strpos($accessType["InsurancePermission"], $permissionSymbols["write"]) !== false){
                 // Call function to input
+                $rArr = SPIE($data);
+                if($rArr[0]){
+                    $output["Status"] = "OK";
+                }
+                else{
+                    $output["Status"] = "InvalidData";
+                    $output["ReturnData"]["error"] = $rArr[1];
+                }
             }
             else{
                 $output["Status"] = "PermissionDenied";
