@@ -58,6 +58,7 @@
         return($rtn);
     }
 
+    // Single Patient Information Entry
     function SPIE($data){
         $ms = mysqliOOP("data");
         $query = "INSERT INTO PATIENT VALUES (NULL,'".$ms->real_escape_string($data["patient_first_name"])."', '".$ms->real_escape_string($data["patient_middle_name"])."',
@@ -77,5 +78,24 @@
         $inserID = $ms->insert_id;
         $ms->close();
         return([TRUE, $inserID]);
+    }
+
+    // Single Patient Insurance Information Entry
+    function SPIIE($data){
+        $ms = mysqliOOP("data");
+        $query = "INSERT INTO INSURANCE VALUES ('".$ms->real_escape_string($data["insurance_id"])."',
+            '".$ms->real_escape_string($data["insurance_company_name"])."',
+            '".$ms->real_escape_string($data["insurance_contact_number"])."',
+            '".$ms->real_escape_string($data["insurance_pharmacy_network"])."',
+            '".$ms->real_escape_string($data["insurance_group_number"])."',
+            '".$ms->real_escape_string($data["insurance_plan_name"])."');";
+        $res = $ms->query($query);
+        if(!$res){
+            $err = $ms->error;
+            $ms->close();
+            return([FALSE, $err]);
+        }
+        $ms->close();
+        return([TRUE, ""]);
     }
 ?>
