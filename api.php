@@ -84,6 +84,14 @@
         case "SPMHIE":
             if(strpos($accessType["MedicalHistoryPermission"], $permissionSymbols["write"]) !== false){
                 // Call function to input
+                $rArr = SPMHIE($data);
+                if($rArr[0]){
+                    $output["Status"] = "OK";
+                }
+                else{
+                    $output["Status"] = "InvalidData";
+                    $output["ReturnData"]["error"] = $rArr[1];
+                }
             }
             else{
                 $output["Status"] = "PermissionDenied";
