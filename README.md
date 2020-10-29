@@ -6,6 +6,7 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
  - [x] [Single Patient Insurance Information Entry](#single-patient-insurance-information-entry)
  - [ ] [Single Patient Medical History Information Entry](#single-patient-medical-history-information-entry)
  - [ ] [Single Patient Family History Information Entry](#single-patient-family-history-information-entry)
+ - [ ] [Single Patient Patient, Insurance, Medical History and Family History Information Entry]()
  - [ ] [Single Patient Information Retrieval By Patient ID](#single-patient-information-retrieval-by-patient-id)
  - [ ] All Patient Information Retrieval (Type = "APIR")
  - [ ] Single Patient Insurance Information Retrieval (Type = "SPIIR")
@@ -28,20 +29,6 @@ _**All information will be transfered in JSON format and not XML or any other**_
 
 The API will be looking for POST requests for higher security and larger message sizes.
 Note: Everything is case-sensitive
-
-## Receiving a response from the API
-
-The response from the API will be a JSON encoded array with two main keys:
- - Status
- - ReturnData
-
-### Status
-
-Status will be a string. Status can take the following values:
- - `"OK"` when the API receives what is expected and the `Token` passed has valid permissions
- - `"PermissionDenied"` when the Token isn't valid or if that group doesn't have access to complete the task
- - `"InvalidData"` when the data received by the API wasn't valid, like entering a `string` of length 20 for `SSN`
- - `"InvalidType"` when the `"Type"` Doesn't match any listed in here
 
 ## Sending the API a message
 
@@ -185,6 +172,50 @@ $result = file_get_contents($url, false, $context);
    - family_stroke => boolean
    - family_sickle_cell_disease => boolean
 
+### Single Patient Patient, Insurance, Medical History and Family History Information Entry
+
+#### SPPIMHFHIE Structure
+
+ - Token => string
+ - Type => ```"SPPIMHFHIE"```
+ - Data => array
+   - patient_first_name => string with a max length of 32
+   - patient_middle_name => string with a max length of 32
+   - patient_last_name => string with a max length of 32
+   - patient_ssn => string with a length of 9
+   - patient_dob => string following a YYYY-MM-DD format
+   - patient_sex => string with a length of 1
+   - patient_emailid => string with a max length of 64
+   - patient_contact_number => string with a max length of 10
+   - patient_address_line_1 => string with a max length of 32
+   - patient_address_line_2 => string with a max length of 32
+   - patient_address_city => string with a max length of 32
+   - patient_address_state => string with a max length of 16
+   - patient_zip_code => string with a length of 5
+   - patient_insurance_id => string with a max length of 9
+   - patient_emergency_contact_name => string with a max length of 64
+   - patient_emergency_contact_relationship => string with a max length of 32
+   - patient_emergency_contact_number => string with a max length of 10
+   - insurance_company_name => string with a max length of 32
+   - insurance_contact_number => string with a max length of 10
+   - insurance_pharmancy_network => string with a length of 32
+   - insurance_group_number => string with a max length of 32
+   - insurance_plan_name  => string with a max length of 32
+   - patient_drinker => boolean
+   - patient_smoker => boolean
+   - patient_currently_pregnant => boolean
+   - patient_diabetes => boolean
+   - patient_cancer => boolean
+   - patient_metal_implants => boolean
+   - patient_pacemaker => boolean
+   - patient_allergies => string with a max length of 128
+   - family_cancer => boolean
+   - family_diabetes => boolean
+   - family_heart_conditions => boolean
+   - family_bleeding_disorder => boolean
+   - family_stroke => boolean
+   - family_sickle_cell_disease => boolean
+
 ### Single Patient Information Retrieval By Patient ID
 
 #### SPIR Structure
@@ -193,3 +224,17 @@ $result = file_get_contents($url, false, $context);
  - Type => ```"SPIRBPID"```
  - Data => array
    - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
+
+## Receiving a response from the API
+
+The response from the API will be a JSON encoded array with two main keys:
+ - Status
+ - ReturnData
+
+### Status
+
+Status will be a string. Status can take the following values:
+ - `"OK"` when the API receives what is expected and the `Token` passed has valid permissions
+ - `"PermissionDenied"` when the Token isn't valid or if that group doesn't have access to complete the task
+ - `"InvalidData"` when the data received by the API wasn't valid, like entering a `string` of length 20 for `SSN`
+ - `"InvalidType"` when the `"Type"` Doesn't match any listed in here
