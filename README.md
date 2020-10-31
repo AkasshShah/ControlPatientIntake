@@ -138,7 +138,7 @@ $result = file_get_contents($url, false, $context);
    - insurance_id => string with a max length of 9
    - insurance_company_name => string with a max length of 32
    - insurance_contact_number => string with a max length of 10
-   - insurance_pharmancy_network => string with a length of 32
+   - insurance_pharmancy_network => string with a length of 128
    - insurance_group_number => string with a max length of 32
    - insurance_plan_name  => string with a max length of 32
 
@@ -198,7 +198,7 @@ $result = file_get_contents($url, false, $context);
    - patient_emergency_contact_number => string with a max length of 10
    - insurance_company_name => string with a max length of 32
    - insurance_contact_number => string with a max length of 10
-   - insurance_pharmancy_network => string with a length of 32
+   - insurance_pharmancy_network => string with a length of 128
    - insurance_group_number => string with a max length of 32
    - insurance_plan_name  => string with a max length of 32
    - patient_drinker => boolean

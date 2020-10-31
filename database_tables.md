@@ -46,7 +46,7 @@ insurance_company_name [varchar(32)]
 
 insurance_contact_number [varchar(10)]
 
-insurance_pharmancy_network [varchar(32)]
+insurance_pharmancy_network [varchar(128)]
 
 insurance_group_number [varchar(32)]
 
