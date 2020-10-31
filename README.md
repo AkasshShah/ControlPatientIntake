@@ -238,3 +238,4 @@ Status will be a string. Status can take the following values:
  - `"PermissionDenied"` when the Token isn't valid or if that group doesn't have access to complete the task
  - `"InvalidData"` when the data received by the API wasn't valid, like entering a `string` of length 20 for `SSN`
  - `"InvalidType"` when the `"Type"` Doesn't match any listed in here
+ - `"PartialEntry"` when only some of the data meant to be entered was entered
