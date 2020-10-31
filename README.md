@@ -230,6 +230,7 @@ $result = file_get_contents($url, false, $context);
 The response from the API will be a JSON encoded array with two main keys:
  - Status
  - ReturnData
+ - Log
 
 ### Status
 
