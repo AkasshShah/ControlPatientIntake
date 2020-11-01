@@ -5,8 +5,8 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
  - [x] [Single Patient Information Entry](#single-patient-information-entry)
  - [x] [Single Patient Insurance Information Entry](#single-patient-insurance-information-entry)
  - [x] [Single Patient Medical History Information Entry](#single-patient-medical-history-information-entry)
- - [ ] [Single Patient Family History Information Entry](#single-patient-family-history-information-entry)
- - [ ] [Single Patient Patient, Insurance, Medical History and Family History Information Entry](#single-patient-patient-insurance-medical-history-and-family-history-information-entry)
+ - [x] [Single Patient Family History Information Entry](#single-patient-family-history-information-entry)
+ - [x] [Single Patient Patient, Insurance, Medical History and Family History Information Entry](#single-patient-patient-insurance-medical-history-and-family-history-information-entry)
  - [ ] [Single Patient Information Retrieval By Patient ID](#single-patient-information-retrieval-by-patient-id)
  - [ ] All Patient Information Retrieval (Type = "APIR")
  - [ ] Single Patient Insurance Information Retrieval (Type = "SPIIR")
@@ -192,15 +192,15 @@ $result = file_get_contents($url, false, $context);
    - patient_address_city => string with a max length of 32
    - patient_address_state => string with a max length of 16
    - patient_zip_code => string with a length of 5
-   - patient_insurance_id => string with a max length of 9
+   - patient_insurance_id => string with a max length of 9 [Can be left blank (Empty String)]
    - patient_emergency_contact_name => string with a max length of 64
    - patient_emergency_contact_relationship => string with a max length of 32
    - patient_emergency_contact_number => string with a max length of 10
-   - insurance_company_name => string with a max length of 32
-   - insurance_contact_number => string with a max length of 10
-   - insurance_pharmancy_network => string with a length of 128
-   - insurance_group_number => string with a max length of 32
-   - insurance_plan_name  => string with a max length of 32
+   - insurance_company_name => string with a max length of 32 [Can be left blank (Empty String)]
+   - insurance_contact_number => string with a max length of 10 [Can be left blank (Empty String)]
+   - insurance_pharmancy_network => string with a length of 128 [Can be left blank (Empty String)]
+   - insurance_group_number => string with a max length of 32 [Can be left blank (Empty String)]
+   - insurance_plan_name  => string with a max length of 32 [Can be left blank (Empty String)]
    - patient_drinker => boolean
    - patient_smoker => boolean
    - patient_currently_pregnant => boolean
@@ -239,4 +239,3 @@ Status will be a string. Status can take the following values:
  - `"PermissionDenied"` when the Token isn't valid or if that group doesn't have access to complete the task
  - `"InvalidData"` when the data received by the API wasn't valid, like entering a `string` of length 20 for `SSN`
  - `"InvalidType"` when the `"Type"` Doesn't match any listed in here
- - `"PartialEntry"` when only some of the data meant to be entered was entered
