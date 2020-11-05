@@ -48,7 +48,7 @@
 
         // Single Patient Information Entry
         case "SPIE":
-            if(strpos($accessType["PatientPermission"], $permissionSymbols["write"])){
+            if(strpos($accessType["PatientPermission"], $permissionSymbols["write"]) !== FALSE){
                 // Call function to input
                 $rArr = SPIE($data);
                 if($rArr[0]){
@@ -68,7 +68,7 @@
 
         // Single Patient Insurance Information Entry
         case "SPIIE":
-            if(strpos($accessType["InsurancePermission"], $permissionSymbols["write"])){
+            if(strpos($accessType["InsurancePermission"], $permissionSymbols["write"]) !== FALSE){
                 // Call function to input
                 $rArr = SPIIE($data);
                 if($rArr[0]){
@@ -87,7 +87,7 @@
 
         // Single Patient Medical History Information Entry
         case "SPMHIE":
-            if(strpos($accessType["MedicalHistoryPermission"], $permissionSymbols["write"])){
+            if(strpos($accessType["MedicalHistoryPermission"], $permissionSymbols["write"]) !== FALSE){
                 // Call function to input
                 $rArr = SPMHIE($data);
                 if($rArr[0]){
@@ -106,7 +106,7 @@
 
         // Single Patient Family History Information Entry
         case "SPFHIE":
-            if(strpos($accessType["FamilyHistoryPermission"], $permissionSymbols["write"])){
+            if(strpos($accessType["FamilyHistoryPermission"], $permissionSymbols["write"]) !== FALSE){
                 // Call function to input
                 $rArr = SPFHIE($data);
                 if($rArr[0]){
@@ -124,10 +124,10 @@
         break;
         case "SPPIMHFHIE":
             if(
-                strpos($accessType["PatientPermission"], $permissionSymbols["write"]) &&
-                strpos($accessType["InsurancePermission"], $permissionSymbols["write"]) &&
-                strpos($accessType["MedicalHistoryPermission"], $permissionSymbols["write"]) &&
-                strpos($accessType["FamilyHistoryPermission"], $permissionSymbols["write"])
+                strpos($accessType["PatientPermission"], $permissionSymbols["write"])  !== FALSE &&
+                strpos($accessType["InsurancePermission"], $permissionSymbols["write"])  !== FALSE &&
+                strpos($accessType["MedicalHistoryPermission"], $permissionSymbols["write"])  !== FALSE &&
+                strpos($accessType["FamilyHistoryPermission"], $permissionSymbols["write"]) !== FALSE
             ){
                 // Call function to input
                 $patArr = SPIE($data);
