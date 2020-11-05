@@ -227,7 +227,7 @@ $result = file_get_contents($url, false, $context);
 
 ## Receiving a response from the API
 
-The response from the API will be a JSON encoded array with two main keys:
+The response from the API will be a JSON encoded array with three main keys:
  - Status
  - ReturnData
  - Log
