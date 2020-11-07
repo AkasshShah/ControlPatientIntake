@@ -124,6 +124,7 @@
         return([TRUE, ""]);
     }
 
+    // Single Patient Family History Information Entry
     function SPFHIE($data){
         $ms = mysqliOOP("data");
         $query = "INSERT INTO FAMILY_HISTORY VALUES (
@@ -140,6 +141,25 @@
         }
         $ms->close();
         return([TRUE, ""]);
+    }
+
+    // Single Patient Information Retrieval By Patient ID
+    function SPIRBPID($data){
+        $ms = mysqliOOP("data");
+        $query = "SELECT * FROM PATIENT WHERE PATIENT.patient_id = '".$ms->real_escape_string($data["patient_id"])."';";
+        $res = $ms->query($query);
+        if(!$res){
+            $err = $ms->error;
+            $ms->close();
+            return([FALSE, $err]);
+        }
+        if($res->num_rows < 1){
+            $ms->close();
+            return(["FALSE", "Invalid Patient ID"]);
+        }
+        $row = $res->fetch_assoc();
+        $ms->close();
+        return([TRUE, $row]);
     }
     
 ?>

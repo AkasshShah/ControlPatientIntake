@@ -38,7 +38,7 @@
     switch($type){
 
         // case "something":
-        //     if(strpos($accessType["column"], $permissionSymbols["permission"])){
+        //     if(strpos($accessType["column"], $permissionSymbols["permission"]) !== FALSE){
         //         // Call function to input
         //     }
         //     else{
@@ -51,7 +51,7 @@
             if(strpos($accessType["PatientPermission"], $permissionSymbols["write"]) !== FALSE){
                 // Call function to input
                 $rArr = SPIE($data);
-                if($rArr[0]){
+                if($rArr[0] === TRUE){
                     $output["Status"] = "OK";
                     $output["ReturnData"]["patient_id"] = $rArr[1];
                     $output["Log"][] = "Inserted Patient with ID " . $rArr[1];
@@ -71,7 +71,7 @@
             if(strpos($accessType["InsurancePermission"], $permissionSymbols["write"]) !== FALSE){
                 // Call function to input
                 $rArr = SPIIE($data);
-                if($rArr[0]){
+                if($rArr[0] === TRUE){
                     $output["Status"] = "OK";
                     $output["Log"][] = "Inserted Insurance Information";
                 }
@@ -90,7 +90,7 @@
             if(strpos($accessType["MedicalHistoryPermission"], $permissionSymbols["write"]) !== FALSE){
                 // Call function to input
                 $rArr = SPMHIE($data);
-                if($rArr[0]){
+                if($rArr[0] === TRUE){
                     $output["Status"] = "OK";
                     $output["Log"][] = "Inserted Medical History Information";
                 }
@@ -109,7 +109,7 @@
             if(strpos($accessType["FamilyHistoryPermission"], $permissionSymbols["write"]) !== FALSE){
                 // Call function to input
                 $rArr = SPFHIE($data);
-                if($rArr[0]){
+                if($rArr[0] === TRUE){
                     $output["Status"] = "OK";
                     $output["Log"][] = "Inserted Family History Information";
                 }
@@ -122,6 +122,8 @@
                 $output["Status"] = "PermissionDenied";
             }
         break;
+
+        // Single Patient Patient, Insurance, Medical History and Family History Information Entry
         case "SPPIMHFHIE":
             if(
                 strpos($accessType["PatientPermission"], $permissionSymbols["write"])  !== FALSE &&
@@ -131,7 +133,7 @@
             ){
                 // Call function to input
                 $patArr = SPIE($data);
-                if($patArr[0]){
+                if($patArr[0] === TRUE){
                     $output["Status"] = "OK";
                     $output["ReturnData"]["patient_id"] = $patArr[1];
                     $data["patient_id"] = $output["ReturnData"]["patient_id"];
@@ -149,7 +151,7 @@
                     }
 
                     $mhArr = SPMHIE($data);
-                    if($mhArr[0]){
+                    if($mhArr[0] === TRUE){
                         $output["Log"][] = "Inserted Medical History Information";
                     }
                     else{
@@ -157,7 +159,7 @@
                     }
 
                     $fhArr = SPFHIE($data);
-                    if($fhArr[0]){
+                    if($fhArr[0] === TRUE){
                         $output["Log"][] = "Inserted Family History Information";
                     }
                     else{
@@ -167,6 +169,27 @@
                 else{
                     $output["Status"] = "InvalidData";
                     $output["ReturnData"]["error"][] = $patArr[1];
+                }
+            }
+            else{
+                $output["Status"] = "PermissionDenied";
+            }
+        break;
+
+        // Single Patient Information Retrieval By Patient ID
+        case "SPIRBPID":
+            if(strpos($accessType["PatientPermission"], $permissionSymbols["read"]) !== FALSE){
+                // Call function to input
+                $rArr = SPIRBPID($data);
+                if($rArr[0] === TRUE){
+                    $output["Status"] = "OK";
+                    foreach($rArr[1] as $key => $val){
+                        $output["ReturnData"][$key] = $val;
+                    } 
+                }
+                else{
+                    $output["Status"] = "InvalidData";
+                    $output["ReturnData"]["error"][] = $rArr[1];
                 }
             }
             else{

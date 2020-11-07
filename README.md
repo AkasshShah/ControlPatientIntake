@@ -7,7 +7,7 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
  - [x] [Single Patient Medical History Information Entry](#single-patient-medical-history-information-entry)
  - [x] [Single Patient Family History Information Entry](#single-patient-family-history-information-entry)
  - [x] [Single Patient Patient, Insurance, Medical History and Family History Information Entry](#single-patient-patient-insurance-medical-history-and-family-history-information-entry)
- - [ ] [Single Patient Information Retrieval By Patient ID](#single-patient-information-retrieval-by-patient-id)
+ - [x] [Single Patient Information Retrieval By Patient ID](#single-patient-information-retrieval-by-patient-id)
  - [ ] All Patient Information Retrieval (Type = "APIR")
  - [ ] Single Patient Insurance Information Retrieval (Type = "SPIIR")
  - [ ] Single Patient Medical History Information Retrieval (Type = "SPMHIR")
@@ -218,12 +218,35 @@ $result = file_get_contents($url, false, $context);
 
 ### Single Patient Information Retrieval By Patient ID
 
-#### SPIR Structure
+#### SPIRBPID Structure
 
  - Token => string
  - Type => ```"SPIRBPID"```
  - Data => array
    - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
+
+####  SPIRBPID `"ReturnData"`
+
+`"ReturnData"` will be an array with the following keys:
+ - patient_id : ID for the patient that was just inserted if information was valid
+ - patient_first_name
+ - patient_middle_name
+ - patient_last_name
+ - patient_ssn
+ - patient_dob
+ - patient_sex
+ - patient_emailid
+ - patient_contact_number
+ - patient_address_line_1
+ - patient_address_line_2
+ - patient_address_city
+ - patient_address_state
+ - patient_zip_code
+ - patient_insurance_id
+ - patient_emergency_contact_name
+ - patient_emergency_contact_relationship
+ - patient_emergency_contact_number
+
 
 ## Receiving a response from the API
 
