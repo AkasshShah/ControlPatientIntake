@@ -228,7 +228,7 @@ $result = file_get_contents($url, false, $context);
 ####  SPIRBPID `"ReturnData"`
 
 `"ReturnData"` will be an array with the following keys:
- - patient_id : ID for the patient that was just inserted if information was valid
+ - patient_id
  - patient_first_name
  - patient_middle_name
  - patient_last_name
