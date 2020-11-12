@@ -8,9 +8,9 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
  - [x] [Single Patient Family History Information Entry](#single-patient-family-history-information-entry)
  - [x] [Single Patient Patient, Insurance, Medical History and Family History Information Entry](#single-patient-patient-insurance-medical-history-and-family-history-information-entry)
  - [x] [Single Patient Information Retrieval By Patient ID](#single-patient-information-retrieval-by-patient-id)
- - [ ] All Patient Information Retrieval (Type = "APIR")
- - [ ] Single Patient Insurance Information Retrieval (Type = "SPIIR")
- - [ ] Single Patient Medical History Information Retrieval (Type = "SPMHIR")
+ - [ ] [All Patient Information Retrieval](#all-patient-information-retrieval)
+ - [ ] [Single Patient Insurance Information Retrieval](#single-patient-insurance-information-retrieval)
+ - [ ] [Single Patient Medical History Information Retrieval](#single-patient-medical-history-information-retrieval)
  - [ ] Single Patient Family History Information Retrieval (Type = "SPFHIR")
  - [ ] Single Patient Information Modification (Type = "SPIM")
  - [ ] Single Patient Insurance Information Modification (Type = "SPIIM")
@@ -247,6 +247,75 @@ $result = file_get_contents($url, false, $context);
  - patient_emergency_contact_relationship
  - patient_emergency_contact_number
 
+### All Patient Information Retrieval
+
+#### APIR Structure
+
+ - Token => string
+ - Type => ```"APIR"```
+ - Data => Empty Array
+
+####  APIR `"ReturnData"`
+
+`"ReturnData"` will be a list of arrays. Each array will have the following keys:
+ - patient_id
+ - patient_first_name
+ - patient_middle_name
+ - patient_last_name
+ - patient_ssn
+ - patient_dob
+ - patient_sex
+ - patient_emailid
+ - patient_contact_number
+ - patient_address_line_1
+ - patient_address_line_2
+ - patient_address_city
+ - patient_address_state
+ - patient_zip_code
+ - patient_insurance_id
+ - patient_emergency_contact_name
+ - patient_emergency_contact_relationship
+ - patient_emergency_contact_number
+
+### Single Patient Insurance Information Retrieval
+
+#### SPIIR Structure
+
+ - Token => string
+ - Type => ```"SPIIR"```
+ - Data => array
+   - insurance_id => string with a max length of 9
+
+####  SPIIR `"ReturnData"`
+
+`"ReturnData"` will be an array with the following keys:
+ - insurance_id
+ - insurance_company_name
+ - insurance_pharmancy_network
+ - insurance_group_number
+ - insurance_plan_name
+
+### Single Patient Medical History Information Retrieval
+
+#### SPMHIR Structure
+
+ - Token => string
+ - Type => ```"SPMHIR"```
+ - Data => array
+   - patient_id => id of patient
+
+####  SPMHIR `"ReturnData"`
+
+`"ReturnData"` will be an array with the following keys:
+ - patient_id
+ - patient_drinker
+ - patient_smoker
+ - patient_currently_pregnant
+ - patient_diabetes
+ - patient_cancer
+ - patient_metal_implants
+ - patient_pacemaker
+ - patient_allergies
 
 ## Receiving a response from the API
 
