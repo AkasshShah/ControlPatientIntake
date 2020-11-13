@@ -196,6 +196,17 @@
                 $output["Status"] = "PermissionDenied";
             }
         break;
+
+        // All Patient Information Retrieval
+        case "APIR":
+            if(strpos($accessType["PatientPermission"], $permissionSymbols["read"]) !== FALSE){
+                $output["Status"] = "OK";
+                $output["ReturnData"]["patients"] = APIR();
+            }
+            else{
+                $output["Status"] = "PermissionDenied";
+            }
+        break;
     }
     echo(json_encode($output));
     exit();

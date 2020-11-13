@@ -165,5 +165,21 @@
         $ms->close();
         return([TRUE, $row]);
     }
+
+    function APIR(){
+        $ms = mysqliOOP("data");
+        $query = "SELECT * FROM PATIENT;";
+        $res = $ms->query($query);
+        if($res->num_rows < 1){
+            $ms->close();
+            return(array());
+        }
+        $rtn = array();
+        while($row = $res->fetch_assoc()){
+            $rtn[] = $row;
+        }
+        $ms->close();
+        return($rtn);
+    }
     
 ?>
