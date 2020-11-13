@@ -150,13 +150,13 @@ $result = file_get_contents($url, false, $context);
  - Type => ```"SPMHIE"```
  - Data => array
    - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
-   - patient_drinker => boolean
-   - patient_smoker => boolean
-   - patient_currently_pregnant => boolean
-   - patient_diabetes => boolean
-   - patient_cancer => boolean
-   - patient_metal_implants => boolean
-   - patient_pacemaker => boolean
+   - patient_drinker => boolean (must be either 0 or 1) (Not True/False)
+   - patient_smoker => boolean (must be either 0 or 1) (Not True/False)
+   - patient_currently_pregnant => boolean (must be either 0 or 1) (Not True/False)
+   - patient_diabetes => boolean (must be either 0 or 1) (Not True/False)
+   - patient_cancer => boolean (must be either 0 or 1) (Not True/False)
+   - patient_metal_implants => boolean (must be either 0 or 1) (Not True/False)
+   - patient_pacemaker => boolean (must be either 0 or 1) (Not True/False)
    - patient_allergies => string with a max length of 128
 
 ### Single Patient Family History Information Entry
@@ -165,12 +165,12 @@ $result = file_get_contents($url, false, $context);
  - Type => ```"SPFHIE"```
  - Data => array
    - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
-   - family_cancer => boolean
-   - family_diabetes => boolean
-   - family_heart_conditions => boolean
-   - family_bleeding_disorder => boolean
-   - family_stroke => boolean
-   - family_sickle_cell_disease => boolean
+   - family_cancer => boolean (must be either 0 or 1) (Not True/False)
+   - family_diabetes => boolean (must be either 0 or 1) (Not True/False)
+   - family_heart_conditions => boolean (must be either 0 or 1) (Not True/False)
+   - family_bleeding_disorder => boolean (must be either 0 or 1) (Not True/False)
+   - family_stroke => boolean (must be either 0 or 1) (Not True/False)
+   - family_sickle_cell_disease => boolean (must be either 0 or 1) (Not True/False)
 
 ### Single Patient Patient, Insurance, Medical History and Family History Information Entry
 
@@ -201,20 +201,20 @@ $result = file_get_contents($url, false, $context);
    - insurance_pharmancy_network => string with a length of 128 [Can be left blank (Empty String)]
    - insurance_group_number => string with a max length of 32 [Can be left blank (Empty String)]
    - insurance_plan_name  => string with a max length of 32 [Can be left blank (Empty String)]
-   - patient_drinker => boolean
-   - patient_smoker => boolean
-   - patient_currently_pregnant => boolean
-   - patient_diabetes => boolean
-   - patient_cancer => boolean
-   - patient_metal_implants => boolean
-   - patient_pacemaker => boolean
+   - patient_drinker => boolean (must be either 0 or 1) (Not True/False)
+   - patient_smoker => boolean (must be either 0 or 1) (Not True/False)
+   - patient_currently_pregnant => boolean (must be either 0 or 1) (Not True/False)
+   - patient_diabetes => boolean (must be either 0 or 1) (Not True/False)
+   - patient_cancer => boolean (must be either 0 or 1) (Not True/False)
+   - patient_metal_implants => boolean (must be either 0 or 1) (Not True/False)
+   - patient_pacemaker => boolean (must be either 0 or 1) (Not True/False)
    - patient_allergies => string with a max length of 128
-   - family_cancer => boolean
-   - family_diabetes => boolean
-   - family_heart_conditions => boolean
-   - family_bleeding_disorder => boolean
-   - family_stroke => boolean
-   - family_sickle_cell_disease => boolean
+   - family_cancer => boolean (must be either 0 or 1) (Not True/False)
+   - family_diabetes => boolean (must be either 0 or 1) (Not True/False)
+   - family_heart_conditions => boolean (must be either 0 or 1) (Not True/False)
+   - family_bleeding_disorder => boolean (must be either 0 or 1) (Not True/False)
+   - family_stroke => boolean (must be either 0 or 1) (Not True/False)
+   - family_sickle_cell_disease => boolean (must be either 0 or 1) (Not True/False)
 
 ### Single Patient Information Retrieval By Patient ID
 
