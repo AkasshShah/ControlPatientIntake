@@ -152,9 +152,11 @@ $result = file_get_contents($url, false, $context);
    - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
    - patient_drinker => boolean (must be either 0 or 1) (Not True/False)
    - patient_smoker => boolean (must be either 0 or 1) (Not True/False)
-   - patient_currently_pregnant => boolean (must be either 0 or 1) (Not True/False)
    - patient_diabetes => boolean (must be either 0 or 1) (Not True/False)
    - patient_cancer => boolean (must be either 0 or 1) (Not True/False)
+   - patient_high_blood_pressure => boolean (must be either 0 or 1) (Not True/False)
+   - patient_heart_disease => boolean (must be either 0 or 1) (Not True/False)
+   - patient_currently_pregnant => boolean (must be either 0 or 1) (Not True/False)
    - patient_metal_implants => boolean (must be either 0 or 1) (Not True/False)
    - patient_pacemaker => boolean (must be either 0 or 1) (Not True/False)
    - patient_allergies => string with a max length of 128
@@ -167,10 +169,12 @@ $result = file_get_contents($url, false, $context);
    - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
    - family_cancer => boolean (must be either 0 or 1) (Not True/False)
    - family_diabetes => boolean (must be either 0 or 1) (Not True/False)
+   - family_high_blood_pressure => boolean (must be either 0 or 1) (Not True/False)
    - family_heart_conditions => boolean (must be either 0 or 1) (Not True/False)
-   - family_bleeding_disorder => boolean (must be either 0 or 1) (Not True/False)
-   - family_stroke => boolean (must be either 0 or 1) (Not True/False)
    - family_sickle_cell_disease => boolean (must be either 0 or 1) (Not True/False)
+   - family_stroke => boolean (must be either 0 or 1) (Not True/False)
+   - family_heart_disease => boolean (must be either 0 or 1) (Not True/False)
+   - family_bleeding_disorder => boolean (must be either 0 or 1) (Not True/False)
 
 ### Single Patient Patient, Insurance, Medical History and Family History Information Entry
 
@@ -203,18 +207,22 @@ $result = file_get_contents($url, false, $context);
    - insurance_plan_name  => string with a max length of 32 [Can be left blank (Empty String)]
    - patient_drinker => boolean (must be either 0 or 1) (Not True/False)
    - patient_smoker => boolean (must be either 0 or 1) (Not True/False)
-   - patient_currently_pregnant => boolean (must be either 0 or 1) (Not True/False)
    - patient_diabetes => boolean (must be either 0 or 1) (Not True/False)
    - patient_cancer => boolean (must be either 0 or 1) (Not True/False)
+   - patient_high_blood_pressure => boolean (must be either 0 or 1) (Not True/False)
+   - patient_heart_disease => boolean (must be either 0 or 1) (Not True/False)
+   - patient_currently_pregnant => boolean (must be either 0 or 1) (Not True/False)
    - patient_metal_implants => boolean (must be either 0 or 1) (Not True/False)
    - patient_pacemaker => boolean (must be either 0 or 1) (Not True/False)
    - patient_allergies => string with a max length of 128
    - family_cancer => boolean (must be either 0 or 1) (Not True/False)
    - family_diabetes => boolean (must be either 0 or 1) (Not True/False)
+   - family_high_blood_pressure => boolean (must be either 0 or 1) (Not True/False)
    - family_heart_conditions => boolean (must be either 0 or 1) (Not True/False)
-   - family_bleeding_disorder => boolean (must be either 0 or 1) (Not True/False)
-   - family_stroke => boolean (must be either 0 or 1) (Not True/False)
    - family_sickle_cell_disease => boolean (must be either 0 or 1) (Not True/False)
+   - family_stroke => boolean (must be either 0 or 1) (Not True/False)
+   - family_heart_disease => boolean (must be either 0 or 1) (Not True/False)
+   - family_bleeding_disorder => boolean (must be either 0 or 1) (Not True/False)
 
 ### Single Patient Information Retrieval By Patient ID
 

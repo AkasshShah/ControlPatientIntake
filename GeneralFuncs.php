@@ -132,7 +132,11 @@
             '".$ms->real_escape_string($data["family_cancer"])."',
             '".$ms->real_escape_string($data["family_diabetes"])."',
             '".$ms->real_escape_string($data["family_high_blood_pressure"])."',
-            '".$ms->real_escape_string($data["family_heart_disease"])."');";
+            '".$ms->real_escape_string($data["family_heart_conditions"])."',
+            '".$ms->real_escape_string($data["family_sickle_cell_disease"])."',
+            '".$ms->real_escape_string($data["family_stroke"])."',
+            '".$ms->real_escape_string($data["family_heart_disease"])."',
+            '".$ms->real_escape_string($data["family_bleeding_disorder"])."');";
         $res = $ms->query($query);
         if(!$res){
             $err = $ms->error;

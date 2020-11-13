@@ -60,11 +60,15 @@ patient_drinker [boolean] #drinks more than 7 drinks a week
 
 patient_smoker [boolean]
 
-patient_currently_pregnant [boolean]
-
 patient_diabetes [boolean]
 
 patient_cancer [boolean]
+
+patient_high_blood_pressure [boolean]
+
+patient_heart_disease [boolean]
+
+patient_currently_pregnant [boolean]
 
 patient_metal_implants [boolean]
 
@@ -80,10 +84,14 @@ family_cancer [boolean]
 
 family_diabetes [boolean]
 
+family_high_blood_pressure [boolean]
+
 family_heart_conditions [boolean]
 
-family_bleeding_disorder [boolean]
+family_sickle_cell_disease [boolean]
 
 family_stroke [boolean]
 
-family_sickle_cell_disease [boolean]
+family_heart_disease [boolean]
+
+family_bleeding_disorder [boolean]
