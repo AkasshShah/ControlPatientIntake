@@ -186,7 +186,7 @@ $result = file_get_contents($url, false, $context);
  - Type => ```"SPRFVIE"```
  - Data => array
    - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
-   - reason_for_visit => string with a max length of 256
+   - reason_for_visit => string with a max length of 7000
 
 ### Single Patient Patient, Insurance, Medical History, Family History and Reason For Visit Information Entry
 
@@ -235,7 +235,7 @@ $result = file_get_contents($url, false, $context);
    - family_stroke => boolean (must be either 0 or 1) (Not True/False)
    - family_heart_disease => boolean (must be either 0 or 1) (Not True/False)
    - family_bleeding_disorder => boolean (must be either 0 or 1) (Not True/False)
-   - reason_for_visit => string with a max length of 256
+   - reason_for_visit => string with a max length of 7000
 
 ####  SPPIMHFHRFVIE `"ReturnData"`
 

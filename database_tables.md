@@ -102,4 +102,4 @@ patient_id [int]      <- primary key
 
 time_of_input [datetime]      <- primary key
 
-reason_for_visit [varchar(256)]
+reason_for_visit [varchar(7000)]
