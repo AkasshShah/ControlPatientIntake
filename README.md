@@ -265,7 +265,7 @@ $result = file_get_contents($url, false, $context);
 
 ####  APIR `"ReturnData"`
 
-`"ReturnData"` will be a list of arrays. Each array will have the following keys:
+`"ReturnData"` will have a list of arrays in a key `"patients"`. Each array will have the following keys:
  - patient_id
  - patient_first_name
  - patient_middle_name
