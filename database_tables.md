@@ -95,3 +95,11 @@ family_stroke [boolean]
 family_heart_disease [boolean]
 
 family_bleeding_disorder [boolean]
+
+## ReasonForVisit
+
+patient_id [int]      <- primary key
+
+time_of_input [datetime]      <- primary key
+
+reason_for_visit [varchar(256)]

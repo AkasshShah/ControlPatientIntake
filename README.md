@@ -6,12 +6,14 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
  - [x] [Single Patient Insurance Information Entry](#single-patient-insurance-information-entry)
  - [x] [Single Patient Medical History Information Entry](#single-patient-medical-history-information-entry)
  - [x] [Single Patient Family History Information Entry](#single-patient-family-history-information-entry)
- - [x] [Single Patient Patient, Insurance, Medical History and Family History Information Entry](#single-patient-patient-insurance-medical-history-and-family-history-information-entry)
+ - [ ] [Single Patient Reason For Visit Information Entry](#single-patient-reason-for-visit-information-entry)
+ - [ ] [Single Patient Patient, Insurance, Medical History, Family History and Reason For Visit Information Entry](#single-patient-patient-insurance-medical-history-family-history-and-reason-for-visit-information-entry)
  - [x] [Single Patient Information Retrieval By Patient ID](#single-patient-information-retrieval-by-patient-id)
  - [x] [All Patient Information Retrieval](#all-patient-information-retrieval)
  - [ ] [Single Patient Insurance Information Retrieval](#single-patient-insurance-information-retrieval)
  - [ ] [Single Patient Medical History Information Retrieval](#single-patient-medical-history-information-retrieval)
  - [ ] Single Patient Family History Information Retrieval (Type = "SPFHIR")
+ - [ ] [Single Patient Reason For Visit Retrieval](#single-patient-reason-for-visit-retrieval)
  - [ ] Single Patient Information Modification (Type = "SPIM")
  - [ ] Single Patient Insurance Information Modification (Type = "SPIIM")
  - [ ] Single Patient Medical History Information Modification (Type = "SPMHIM")
@@ -176,12 +178,22 @@ $result = file_get_contents($url, false, $context);
    - family_heart_disease => boolean (must be either 0 or 1) (Not True/False)
    - family_bleeding_disorder => boolean (must be either 0 or 1) (Not True/False)
 
-### Single Patient Patient, Insurance, Medical History and Family History Information Entry
+### Single Patient Reason For Visit Information Entry
 
-#### SPPIMHFHIE Structure
+#### SPRFVIE Structure
 
  - Token => string
- - Type => ```"SPPIMHFHIE"```
+ - Type => ```"SPRFVIE"```
+ - Data => array
+   - patient_id => an int that refers to a certain patient (Can be obtained when doing SPIE for the patient or with a search)
+   - reason_for_visit => string with a max length of 256
+
+### Single Patient Patient, Insurance, Medical History, Family History and Reason For Visit Information Entry
+
+#### SPPIMHFHRFVIE Structure
+
+ - Token => string
+ - Type => ```"SPPIMHFHRFVIE"```
  - Data => array
    - patient_first_name => string with a max length of 32
    - patient_middle_name => string with a max length of 32
@@ -223,6 +235,12 @@ $result = file_get_contents($url, false, $context);
    - family_stroke => boolean (must be either 0 or 1) (Not True/False)
    - family_heart_disease => boolean (must be either 0 or 1) (Not True/False)
    - family_bleeding_disorder => boolean (must be either 0 or 1) (Not True/False)
+   - reason_for_visit => string with a max length of 256
+
+####  SPPIMHFHRFVIE `"ReturnData"`
+
+`"ReturnData"` will be an array with the following keys:
+ - patient_id : ID for the patient that was just inserted if information was valid
 
 ### Single Patient Information Retrieval By Patient ID
 
