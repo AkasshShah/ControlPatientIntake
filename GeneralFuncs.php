@@ -147,6 +147,41 @@
         return([TRUE, ""]);
     }
 
+    // Single Patient Reason For Visit Information Entry
+    function SPRFVIE($data){
+        $ms = mysqliOOP("data");
+        $query = "INSERT INTO ReasonForVisit VALUES (
+            '" . $ms->real_escape_string($data["patient_id"]) . "',
+            NOW(),
+            '" . $ms->real_escape_string($data["reason_for_visit"]) . "'
+        );";
+        $res = $ms->query($query);
+        if(!$res){
+            $err = $ms->error;
+            $ms->close();
+            return([FALSE, $err]);
+        }
+        $ms->close();
+        return([TRUE, ""]);
+    }
+
+    // Single Patient Reason For Visit Information Retrieval
+    function SPRFVIR($data){
+        $ms = mysqliOOP("data");
+        $query = "SELECT * FROM ReasonForVisit WHERE patient_id = " . $ms->real_escape_string($data["patient_id"]) . " ;";
+        $res = $ms->query($query);
+        if($res->num_rows < 1){
+            $ms->close();
+            return(array());
+        }
+        $rtn = array();
+        while($row = $res->fetch_assoc()){
+            $rtn[] = $row;
+        }
+        $ms->close();
+        return($rtn);
+    }
+
     // Single Patient Information Retrieval By Patient ID
     function SPIRBPID($data){
         $ms = mysqliOOP("data");
@@ -166,6 +201,7 @@
         return([TRUE, $row]);
     }
 
+    // All Patients Information Retrieval
     function APIR(){
         $ms = mysqliOOP("data");
         $query = "SELECT * FROM PATIENT;";

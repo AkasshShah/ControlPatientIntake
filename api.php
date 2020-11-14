@@ -123,8 +123,27 @@
             }
         break;
 
-        // Single Patient Patient, Insurance, Medical History and Family History Information Entry
-        case "SPPIMHFHIE":
+        // Single Patient Reason For Visit Information Entry
+        case "SPRFVIE":
+            if(strpos($accessType["MedicalHistoryPermission"], $permissionSymbols["write"]) !== FALSE){
+                // Call function to input
+                $rArr = SPFHIE($data);
+                if($rArr[0] === TRUE){
+                    $output["Status"] = "OK";
+                    $output["Log"][] = "Inserted Reason For Visit Information";
+                }
+                else{
+                    $output["Status"] = "InvalidData";
+                    $output["ReturnData"]["error"][] = $rArr[1];
+                }
+            }
+            else{
+                $output["Status"] = "PermissionDenied";
+            }
+        break;
+
+        // Single Patient Patient, Insurance, Medical History, Family History and Reason For Visit Information Entry
+        case "SPPIMHFHRFVIE":
             if(
                 strpos($accessType["PatientPermission"], $permissionSymbols["write"])  !== FALSE &&
                 strpos($accessType["InsurancePermission"], $permissionSymbols["write"])  !== FALSE &&
@@ -164,6 +183,14 @@
                     }
                     else{
                         $output["ReturnData"]["error"][] = $fhArr[1];
+                    }
+
+                    $rfvArr = SPFHIE($data);
+                    if($rfvArr[0] === TRUE){
+                        $output["Log"][] = "Inserted Reason For Visit Information";
+                    }
+                    else{
+                        $output["ReturnData"]["error"][] = $rfvArr[1];
                     }
                 }
                 else{
