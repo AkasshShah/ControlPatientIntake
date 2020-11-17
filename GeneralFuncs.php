@@ -150,11 +150,14 @@
     // Single Patient Reason For Visit Information Entry
     function SPRFVIE($data){
         $ms = mysqliOOP("data");
-        $query = "INSERT INTO ReasonForVisit VALUES (
-            '" . $ms->real_escape_string($data["patient_id"]) . "',
-            NOW(),
-            '" . $ms->real_escape_string($data["reason_for_visit"]) . "'
-        );";
+        // $query = "INSERT INTO ReasonForVisit VALUES (
+        //     '" . $ms->real_escape_string($data["patient_id"]) . "',
+        //     NOW(),
+        //     '" . $ms->real_escape_string($data["reason_for_visit"]) . "'
+        // );";
+
+        $query = "INSERT INTO ReasonForVisit (`patient_id`, `time_of_input`, `reason_for_visit`) VALUES ('".$ms->real_escape_string($data["patient_id"])."', NOW(), '".$ms->real_escape_string($data["reason_for_visit"])."');";
+
         $res = $ms->query($query);
         if(!$res){
             $err = $ms->error;

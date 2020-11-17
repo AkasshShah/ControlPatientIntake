@@ -127,7 +127,7 @@
         case "SPRFVIE":
             if(strpos($accessType["MedicalHistoryPermission"], $permissionSymbols["write"]) !== FALSE){
                 // Call function to input
-                $rArr = SPFHIE($data);
+                $rArr = SPRFVIE($data);
                 if($rArr[0] === TRUE){
                     $output["Status"] = "OK";
                     $output["Log"][] = "Inserted Reason For Visit Information";
@@ -165,7 +165,7 @@
                             $output["Log"][] = "Inserted Insurance Information";
                         }
                         else{
-                            $output["ReturnData"]["error"][] = $insArr[1];
+                            $output["ReturnData"]["error"]["Insurance"] = $insArr[1];
                         }
                     }
 
@@ -174,7 +174,7 @@
                         $output["Log"][] = "Inserted Medical History Information";
                     }
                     else{
-                        $output["ReturnData"]["error"][] = $mhArr[1];
+                        $output["ReturnData"]["error"]["MedicalHistory"] = $mhArr[1];
                     }
 
                     $fhArr = SPFHIE($data);
@@ -182,20 +182,20 @@
                         $output["Log"][] = "Inserted Family History Information";
                     }
                     else{
-                        $output["ReturnData"]["error"][] = $fhArr[1];
+                        $output["ReturnData"]["error"]["FamilyHistory"] = $fhArr[1];
                     }
 
-                    $rfvArr = SPFHIE($data);
+                    $rfvArr = SPRFVIE($data);
                     if($rfvArr[0] === TRUE){
                         $output["Log"][] = "Inserted Reason For Visit Information";
                     }
                     else{
-                        $output["ReturnData"]["error"][] = $rfvArr[1];
+                        $output["ReturnData"]["error"]["ReasonForVisit"] = $rfvArr[1];
                     }
                 }
                 else{
                     $output["Status"] = "InvalidData";
-                    $output["ReturnData"]["error"][] = $patArr[1];
+                    $output["ReturnData"]["error"]["Patient"] = $patArr[1];
                 }
             }
             else{
