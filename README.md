@@ -10,7 +10,7 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
  - [x] [Single Patient Patient, Insurance, Medical History, Family History and Reason For Visit Information Entry](#single-patient-patient-insurance-medical-history-family-history-and-reason-for-visit-information-entry)
  - [x] [Single Patient Information Retrieval By Patient ID](#single-patient-information-retrieval-by-patient-id)
  - [x] [All Patient Information Retrieval](#all-patient-information-retrieval)
- - [ ] [Single Patient Insurance Information Retrieval](#single-patient-insurance-information-retrieval)
+ - [x] [Single Patient Insurance Information Retrieval](#single-patient-insurance-information-retrieval)
  - [ ] [Single Patient Medical History Information Retrieval](#single-patient-medical-history-information-retrieval)
  - [ ] Single Patient Family History Information Retrieval (Type = "SPFHIR")
  - [ ] [Single Patient Reason For Visit Information Retrieval](#single-patient-reason-for-visit-information-retrieval)

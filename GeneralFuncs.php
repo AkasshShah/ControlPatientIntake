@@ -220,5 +220,24 @@
         $ms->close();
         return($rtn);
     }
+
+    // Single Patient Insurance Information Retrieval
+    function SPIIR($data){
+        $ms = mysqliOOP("data");
+        $query = "SELECT * FROM INSURANCE WHERE INSURANCE.insurance_id = '".$ms->real_escape_string($data["insurance_id"])."';";
+        $res = $ms->query($query);
+        if(!$res){
+            $err = $ms->error;
+            $ms->close();
+            return([FALSE, $err]);
+        }
+        if($res->num_rows < 1){
+            $ms->close();
+            return(["FALSE", "Invalid Insurance ID"]);
+        }
+        $row = $res->fetch_assoc();
+        $ms->close();
+        return([TRUE, $row]);
+    }
     
 ?>
