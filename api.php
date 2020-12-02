@@ -274,6 +274,26 @@
                 $output["Status"] = "PermissionDenied";
             }
         break;
+
+        // Single Patient Family History Information Retrieval
+        case "SPFHIR":
+            if(strpos($accessType["FamilyHistoryPermission"], $permissionSymbols["read"]) !== FALSE){
+                $rArr = SPFHIR($data);
+                if($rArr[0] === TRUE){
+                    $output["Status"] = "OK";
+                    foreach($rArr[1] as $key => $val){
+                        $output["ReturnData"][$key] = $val;
+                    } 
+                }
+                else{
+                    $output["Status"] = "InvalidData";
+                    $output["ReturnData"]["error"][] = $rArr[1];
+                }
+            }
+            else{
+                $output["Status"] = "PermissionDenied";
+            }
+        break;
     }
     echo(json_encode($output));
     exit();

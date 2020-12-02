@@ -12,7 +12,7 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
  - [x] [All Patient Information Retrieval](#all-patient-information-retrieval)
  - [x] [Single Patient Insurance Information Retrieval](#single-patient-insurance-information-retrieval)
  - [x] [Single Patient Medical History Information Retrieval](#single-patient-medical-history-information-retrieval)
- - [ ] Single Patient Family History Information Retrieval (Type = "SPFHIR")
+ - [x] [Single Patient Family History Information Retrieval](#single-patient-family-history-information-retrieval)
  - [ ] [Single Patient Reason For Visit Information Retrieval](#single-patient-reason-for-visit-information-retrieval)
  - [ ] Single Patient Information Modification (Type = "SPIM")
  - [ ] Single Patient Insurance Information Modification (Type = "SPIIM")
@@ -342,6 +342,26 @@ $result = file_get_contents($url, false, $context);
  - patient_metal_implants
  - patient_pacemaker
  - patient_allergies
+
+### Single Patient Family History Information Retrieval
+
+#### SPFHIR Structure
+
+ - Token => string
+ - Type => ```"SPFHIR"```
+ - Data => array
+   - patient_id => id of patient
+
+`"ReturnData"` will be an array with the following keys:
+ - patient_id
+ - family_cancer
+ - family_diabetes
+ - family_high_blood_pressure
+ - family_heart_conditions
+ - family_sickle_cell_disease
+ - family_stroke
+ - family_heart_disease
+ - family_bleeding_disorder
 
 ## Receiving a response from the API
 

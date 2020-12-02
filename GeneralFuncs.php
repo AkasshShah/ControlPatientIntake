@@ -258,4 +258,23 @@
         $ms->close();
         return([TRUE, $row]);
     }
+
+    // Single Patient Family History Information Retrieval
+    function SPFHIR($data){
+        $ms = mysqliOOP("data");
+        $query = "SELECT * FROM FAMILY_HISTORY WHERE FAMILY_HISTORY.patient_id = '".$ms->real_escape_string($data["patient_id"])."';";
+        $res = $ms->query($query);
+        if(!$res){
+            $err = $ms->error;
+            $ms->close();
+            return([FALSE, $err]);
+        }
+        if($res->num_rows < 1){
+            $ms->close();
+            return(["FALSE", "Invalid Patient ID"]);
+        }
+        $row = $res->fetch_assoc();
+        $ms->close();
+        return([TRUE, $row]);
+    }
 ?>
