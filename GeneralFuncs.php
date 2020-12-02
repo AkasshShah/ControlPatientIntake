@@ -239,5 +239,23 @@
         $ms->close();
         return([TRUE, $row]);
     }
-    
+
+    // Single Patient Medical History Information Retrieval
+    function SPMHIR($data){
+        $ms = mysqliOOP("data");
+        $query = "SELECT * FROM MEDICAL_HISTORY WHERE MEDICAL_HISTORY.patient_id = '".$ms->real_escape_string($data["patient_id"])."';";
+        $res = $ms->query($query);
+        if(!$res){
+            $err = $ms->error;
+            $ms->close();
+            return([FALSE, $err]);
+        }
+        if($res->num_rows < 1){
+            $ms->close();
+            return(["FALSE", "Invalid Patient ID"]);
+        }
+        $row = $res->fetch_assoc();
+        $ms->close();
+        return([TRUE, $row]);
+    }
 ?>
