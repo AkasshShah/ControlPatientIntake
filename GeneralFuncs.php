@@ -188,7 +188,7 @@
     // Single Patient Information Retrieval By Patient ID
     function SPIRBPID($data){
         $ms = mysqliOOP("data");
-        $query = "SELECT * FROM PATIENT WHERE PATIENT.patient_id = '".$ms->real_escape_string($data["patient_id"])."';";
+        $query = "SELECT * FROM PATIENT WHERE PATIENT.patient_id = ".$ms->real_escape_string($data["patient_id"]).";";
         $res = $ms->query($query);
         if(!$res){
             $err = $ms->error;
