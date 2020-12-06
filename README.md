@@ -13,7 +13,9 @@ Control plane for the MVC model of our patient intake micro-service for a Patien
  - [x] [Single Patient Insurance Information Retrieval](#single-patient-insurance-information-retrieval)
  - [x] [Single Patient Medical History Information Retrieval](#single-patient-medical-history-information-retrieval)
  - [x] [Single Patient Family History Information Retrieval](#single-patient-family-history-information-retrieval)
- - [ ] [Single Patient Reason For Visit Information Retrieval](#single-patient-reason-for-visit-information-retrieval)
+ - [x] [Single Patient Reason For Visit Information Retrieval](#single-patient-reason-for-visit-information-retrieval)
+
+## Control (API) Features- ICEBOX
  - [ ] Single Patient Information Modification (Type = "SPIM")
  - [ ] Single Patient Insurance Information Modification (Type = "SPIIM")
  - [ ] Single Patient Medical History Information Modification (Type = "SPMHIM")
