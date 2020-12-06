@@ -363,6 +363,22 @@ $result = file_get_contents($url, false, $context);
  - family_heart_disease
  - family_bleeding_disorder
 
+### Single Patient Reason For Visit Information Retrieval
+
+#### SPRFVIR Structure
+
+ - Token => string
+ - Type => ```"SPRFVIR"```
+ - Data => array
+   - patient_id => id of patient
+
+####  SPRFVIR `"ReturnData"`
+
+`"ReturnData"` will have a list of arrays in a key `"ReasonForVisit"`. Each array will have the following keys:
+ - patient_id
+ - time_of_input
+ - reason_for_visit
+
 ## Receiving a response from the API
 
 The response from the API will be a JSON encoded array with three main keys:

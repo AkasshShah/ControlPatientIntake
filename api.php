@@ -294,6 +294,17 @@
                 $output["Status"] = "PermissionDenied";
             }
         break;
+
+        // Single Patient Reason For Visit Information Retireval
+        case "SPRFVIR":
+            if(strpos($accessType["MedicalHistoryPermission"], $permissionSymbols["read"]) !== FALSE){
+                $output["Status"] = "OK";
+                $output["ReturnData"]["ReasonForVisit"] = SPRFVIR($data);
+            }
+            else{
+                $output["Status"] = "PermissionDenied";
+            }
+        break;
     }
     echo(json_encode($output));
     exit();
